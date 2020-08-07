@@ -1,14 +1,22 @@
 import React from "react";
-import { LoginPage } from "./LoginPage.jsx";
-import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
+import { LoginPage } from "./LoginPage.jsx";
+import { MainPage } from "./MainPage.jsx";
+import { ErrorPage } from "./ErrorPage.jsx";
+
+const App = () => {
   return (
-    <div className="App">
-      <div>hiii</div>
-      <LoginPage />
-    </div>
+    <>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={LoginPage} />
+          <Route path="/MainPage" exact component={MainPage} />
+          <Route component={ErrorPage} />
+        </Switch>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
