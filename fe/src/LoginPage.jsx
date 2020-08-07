@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 export const LoginPage = () => {
+  let history = useHistory();
+
+  const onPassMainPage = () => history.push(`/MainPage`);
+
   const [number, setNumber] = useState(0);
   const [id, setId] = useState("");
 
@@ -26,6 +31,7 @@ export const LoginPage = () => {
       <button onClick={clickMinus}>-</button>
       <input onChange={changeInput}></input>
       <div>id: {id}</div>
+      <button onClick={onPassMainPage}>Go to Main Page</button>
     </div>
   );
 };
