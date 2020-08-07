@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { LoginPage } from "./LoginPage.jsx";
-import { MainPage } from "./MainPage.jsx";
-import { ErrorPage } from "./ErrorPage.jsx";
+import LoginPage from "./views/LoginPage";
+import MainPage from "./views/MainPage";
+import ErrorPage from "./views/ErrorPage";
 
 const App = () => {
   return (

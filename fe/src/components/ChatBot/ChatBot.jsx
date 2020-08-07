@@ -1,14 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-export const ChatBot = () => {
+import WordCloudList from "./WordCloudList";
+
+const ChatBot = () => {
   return (
     <Wrapper>
       <TitleBox>
         <div>챗봇</div>
         <button>X</button>
       </TitleBox>
-      <ContextBody></ContextBody>
+      <ContextBody>
+        <WordCloudList />
+      </ContextBody>
       <InputBox>
         <input textholder="챗봇에게 궁금한 점을 물어보세요!"></input>
         <button>보내기</button>
@@ -16,6 +20,7 @@ export const ChatBot = () => {
     </Wrapper>
   );
 };
+
 const Wrapper = styled.div`
   width: 300px;
   height: 500px;
@@ -39,3 +44,5 @@ const InputBox = styled.div`
   height: 10%;
   justify-content: space-between;
 `;
+
+export default ChatBot;

@@ -1,8 +1,8 @@
 import React from "react";
 
-import { ChatBot } from "./ChatBot.jsx";
+import ChatBot from "../components/ChatBot/ChatBot";
 
-export const MainPage = () => {
+const MainPage = () => {
   return (
     <div>
       <div>Main Page!!</div>
@@ -10,3 +10,5 @@ export const MainPage = () => {
     </div>
   );
 };
+
+export default MainPage;
