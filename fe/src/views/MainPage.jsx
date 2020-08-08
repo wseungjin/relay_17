@@ -1,14 +1,21 @@
 import React from "react";
+import styled from "styled-components";
 
 import ChatBot from "../components/ChatBot/ChatBot";
 
 const MainPage = () => {
   return (
-    <div>
-      <div>Main Page!!</div>
+    <Wrapper>
+      <MainHeader>I Loved School</MainHeader>
       <ChatBot />
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  padding: 20px;
+`;
+
+const MainHeader = styled.div``;
 
 export default MainPage;
