@@ -58,12 +58,6 @@ const Wrapper = styled.div`
   padding: 20px;
 `;
 
-const MainHeader = styled.div`
-  padding: 20px;
-  height: 50px;
-  background-color: #4fd2c2;
-`;
-
 const MainBody = styled.div`
   height: 550px;
   display: flex;
@@ -77,25 +71,24 @@ const MainLeft = styled.div`
 
 const Profile = styled.div`
   margin: 0 0 20px 0;
-  padding: 20px;
-  width: 70%;
-  height: 20%;
+  width: 100%;
+  height: 30%;
   background-color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   text-align: center;
+  box-sizing: border-box;
+  display: table;
 `;
 
 const SchoolList = styled.div`
-  padding: 20px;
-  width: 70%;
+  width: 100%;
   height: 60%;
   background-color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   text-align: center;
+  box-sizing: border-box;
 `;
 
 const MainCenter = styled.div`
