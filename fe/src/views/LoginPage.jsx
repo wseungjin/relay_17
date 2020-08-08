@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
+import { postLogin } from "../util/ReqMessage";
+
 const LoginPage = () => {
   let history = useHistory();
 
@@ -30,19 +32,19 @@ const LoginPage = () => {
   };
 
   const onSubmit = () => {
-    if (!(name && school && graduatedYear)) {
-      setErrMsg("이름, 학교, 졸업년도를 모두 입력해주세요.");
+    if (!(name && school && graduatedYear && favors)) {
+      setErrMsg("이름, 학교, 졸업년도, 관심사를 모두 입력해주세요.");
       return;
     }
 
     if (errMsg) return;
     const params = { name: name, shcool: school, favors: favors, graduatedYear: graduatedYear };
-    console.log(params);
+    postLogin(params);
     history.push(`/MainPage`);
   };
 
   return (
-    <div>
+    <Wrapper>
       <h1>I Loved School Logo</h1>
       <LoginBox>
         <LoginHeader>
@@ -56,15 +58,20 @@ const LoginPage = () => {
         <ErrorMsg>{errMsg}</ErrorMsg>
         <Button onClick={onSubmit}>시작하기</Button>
       </LoginBox>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  text-align: center;
+  padding-top: 50px;
+`;
 
 const LoginBox = styled.div`
   display: block;
   top: 30%;
   margin: auto;
-  margin-top: 10%;
+  margin-top: 5%;
   width: 40%;
   border: 3px solid grey;
   padding: 10px;
