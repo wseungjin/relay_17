@@ -1,46 +1,46 @@
 import axios from "axios";
 import URL from "../constants/url.js";
 
-export const postLogin = (input) => {
+export const postLogin = (params) => {
   axios
-    .post(URL.login, { params: input })
-    .then(function (response) {
+    .post(URL.login, params)
+    .then((response) => {
       return response.data;
     })
-    .catch(function (error) {
+    .catch((error) => {
       return error;
     });
 };
 
 export const getUserAll = () => {
-  axios
-    .post(URL.userInfoAll)
-    .then(function (response) {
+  return axios
+    .get(URL.userInfoAll)
+    .then((response) => {
       return response.data;
     })
-    .catch(function (error) {
+    .catch((error) => {
       return error;
     });
 };
 
 export const getUser = (name) => {
-  axios
-    .post(`URL.userInfo${name}`)
-    .then(function (response) {
+  return axios
+    .get(`${URL.userInfo}${name}`)
+    .then((response) => {
       return response.data;
     })
-    .catch(function (error) {
+    .catch((error) => {
       return error;
     });
 };
 
-export const getChatBot = (input) => {
-  axios
-    .get(URL.chatbot, { params: input })
-    .then(function (response) {
+export const getChatBot = (message) => {
+  return axios
+    .get(`${URL.chatbot}${message}`)
+    .then((response) => {
       return response.data;
     })
-    .catch(function (error) {
+    .catch((error) => {
       return error;
     });
 };
