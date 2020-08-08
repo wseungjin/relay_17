@@ -16,11 +16,17 @@ const ChatBot = () => {
   };
 
   const onPassMessage = () => {
-    message && setMessageList((messageList) => [...messageList, { text: message, user: true }]);
+    message &&
+      setMessageList((messageList) => [
+        ...messageList,
+        { text: message, user: true },
+      ]);
     setMessage("");
   };
 
-  const wordCloudList = messageList.map((message, index) => <WordCloud message={message} key={index} />);
+  const wordCloudList = messageList.map((message, index) => (
+    <WordCloud message={message} key={index} />
+  ));
 
   return (
     <Wrapper>
@@ -77,6 +83,7 @@ const TitleButton = styled.button`
 const ContextBody = styled.div`
   width: 100%;
   height: 80%;
+  background-color: #ffffff;
 `;
 
 const InputBox = styled.div`
@@ -90,6 +97,7 @@ const InputBox = styled.div`
 
 const MessageInput = styled.input`
   margin-left: 4px;
+  padding-left: 4px;
   width: 80%;
   height: 50%;
   border: none;
