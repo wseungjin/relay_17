@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { getUser } from "../util/ReqMessage";
 import ChatBot from "../components/ChatBot/ChatBot";
 
 const MainPage = () => {
+  const { userName } = useParams();
   const [chatbotOpen, setChatbotOpen] = useState(false);
   const [userInfo, setUserInfo] = useState({ name: "", school: "", favors: "", graduatedYear: null });
 
   const getUserHandler = async () => {
-    const user = await getUser("test");
+    const user = await getUser(userName);
     setUserInfo(user);
   };
 

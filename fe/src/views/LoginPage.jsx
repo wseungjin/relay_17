@@ -40,6 +40,7 @@ const LoginPage = () => {
     if (errMsg) return;
     const params = { name: name, school: school, favors: favors, graduatedYear: graduatedYear };
     await postLogin(params);
+    history.push(`/MainPage/${name}`);
   };
 
   return (
