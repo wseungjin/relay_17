@@ -57,8 +57,7 @@ const ChatBot = ({ isOpen, onSetChatbotOpen }) => {
 
 const Wrapper = styled.div`
   visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
-  width: 300px;
-  height: 500px;
+  height: 90%;
   box-shadow: 1px 1px 2px 6px #f0f0f0;
   border-radius: 10px;
 `;
@@ -94,6 +93,7 @@ const ContextBody = styled.div`
   height: 80%;
   padding: 4px;
   overflow: scroll;
+  background-color: #ffffff;
 `;
 
 const InputBox = styled.div`
@@ -107,6 +107,7 @@ const InputBox = styled.div`
 
 const MessageInput = styled.input`
   margin-left: 4px;
+  padding-left: 4px;
   width: 80%;
   height: 50%;
   border: none;
@@ -121,6 +122,7 @@ const InputButton = styled.button`
   background: #4fd2c2;
   border: none;
   border-radius: 5px;
+  font-size: small;
 `;
 
 export default ChatBot;
