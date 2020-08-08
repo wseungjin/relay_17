@@ -31,16 +31,15 @@ const LoginPage = () => {
     setFavors(target.value);
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (!(name && school && graduatedYear && favors)) {
       setErrMsg("이름, 학교, 졸업년도, 관심사를 모두 입력해주세요.");
       return;
     }
 
     if (errMsg) return;
-    const params = { name: name, shcool: school, favors: favors, graduatedYear: graduatedYear };
-    postLogin(params);
-    history.push(`/MainPage`);
+    const params = { name: name, school: school, favors: favors, graduatedYear: graduatedYear };
+    await postLogin(params);
   };
 
   return (
