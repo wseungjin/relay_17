@@ -1,9 +1,9 @@
 import React from "react";
 
-const WordCloud = (user, text) => {
+const WordCloud = (user, message) => {
   return (
     <div>
-      <div>말풍선!</div>
+      <div>{message}</div>
     </div>
   );
 };

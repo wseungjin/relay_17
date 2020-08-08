@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import WordCloudList from "./WordCloudList";
 
 const ChatBot = () => {
+  const [message, setMessage] = useState("");
+
+  const onSetMessage = ({ target }) => {
+    setMessage(target.value);
+  };
+
+  const onPassMessage = () => {};
+
   return (
     <Wrapper>
       <TitleBox>
@@ -14,8 +22,8 @@ const ChatBot = () => {
         <WordCloudList />
       </ContextBody>
       <InputBox>
-        <input textholder="챗봇에게 궁금한 점을 물어보세요!"></input>
-        <button>보내기</button>
+        <input textholder="챗봇에게 궁금한 점을 물어보세요!" onChange={onSetMessage}></input>
+        <button onClick={onPassMessage}>보내기</button>
       </InputBox>
     </Wrapper>
   );

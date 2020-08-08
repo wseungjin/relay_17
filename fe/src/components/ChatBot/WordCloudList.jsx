@@ -2,10 +2,10 @@ import React from "react";
 
 import WordCloud from "./WordCloud";
 
-const WordCloudList = () => {
+const WordCloudList = (message) => {
   return (
     <div>
-      <WordCloud />
+      <WordCloud message={message} />
     </div>
   );
 };
