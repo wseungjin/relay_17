@@ -16,6 +16,8 @@ const Wrapper = styled.div`
   padding: 20px;
 `;
 
-const MainHeader = styled.div``;
+const MainHeader = styled.div`
+  padding: 0 0 20px 0;
+`;
 
 export default MainPage;
