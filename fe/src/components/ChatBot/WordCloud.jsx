@@ -31,6 +31,7 @@ const Message = styled.div`
   padding: 4px 10px;
   border-radius: 5px;
   width: fit-content;
+  overflow-wrap: anywhere;
 `;
 
 export default WordCloud;
