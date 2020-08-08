@@ -20,10 +20,10 @@ const ChatBot = ({ isOpen, onSetChatbotOpen }) => {
     if (e.keyCode === 13) onPassMessage();
   };
 
-  const onPassMessage = () => {
+  const onPassMessage = async () => {
     message && setMessageList((messageList) => [...messageList, { text: message, user: true }]);
     // 챗봇 api가 나오면 추가하면 됨
-    // const res = getChatBot({ message: message });
+    // const res = await getChatBot(message);
     // setMessageList((messageList) => [...messageList, { text: res, user: false }]);
     setMessage("");
 
