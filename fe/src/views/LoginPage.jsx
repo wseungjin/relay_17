@@ -44,7 +44,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <Wrapper>
       <h1>I Loved School Logo</h1>
       <LoginBox>
         <LoginHeader>
@@ -58,15 +58,20 @@ const LoginPage = () => {
         <ErrorMsg>{errMsg}</ErrorMsg>
         <Button onClick={onSubmit}>시작하기</Button>
       </LoginBox>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  text-align: center;
+  padding-top: 50px;
+`;
 
 const LoginBox = styled.div`
   display: block;
   top: 30%;
   margin: auto;
-  margin-top: 10%;
+  margin-top: 5%;
   width: 40%;
   border: 3px solid grey;
   padding: 10px;
