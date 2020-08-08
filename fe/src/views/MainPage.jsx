@@ -15,10 +15,6 @@ const MainPage = () => {
 
   useEffect(() => {
     getUserHandler();
-    console.log(userInfo);
-
-    // const user = getUser("test");
-    // setUserInfo();
   }, []);
 
   const onSetChatbotOpen = () => {
@@ -32,7 +28,12 @@ const MainPage = () => {
           <Wrapper>
             <MainBody>
               <MainLeft>
-                <Profile>{userInfo.name}</Profile>
+                <Profile>
+                  <p>이름: {userInfo.name}</p>
+                  <p>학교: {userInfo.school}</p>
+                  <p>졸업년도: {userInfo.graduatedYear}</p>
+                  <p>관심사: {userInfo.favors}</p>
+                </Profile>
                 <SchoolList>School List</SchoolList>
               </MainLeft>
               <MainCenter>Center</MainCenter>
