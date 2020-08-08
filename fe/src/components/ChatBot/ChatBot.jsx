@@ -1,16 +1,26 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import WordCloudList from "./WordCloudList";
+import WordCloud from "./WordCloud";
 
 const ChatBot = () => {
   const [message, setMessage] = useState("");
+  const [messageList, setMessageList] = useState([]);
 
   const onSetMessage = ({ target }) => {
     setMessage(target.value);
   };
 
-  const onPassMessage = () => {};
+  const pressEnter = (e) => {
+    if (e.keyCode === 13) onPassMessage();
+  };
+
+  const onPassMessage = () => {
+    message && setMessageList((messageList) => [...messageList, { text: message, user: true }]);
+    setMessage("");
+  };
+
+  const wordCloudList = messageList.map((message, index) => <WordCloud message={message} key={index} />);
 
   return (
     <Wrapper>
@@ -18,12 +28,15 @@ const ChatBot = () => {
         <ChatbotTitle>I Loved School 챗봇</ChatbotTitle>
         <TitleButton>X</TitleButton>
       </TitleBox>
-      <ContextBody>
-        <WordCloudList />
-      </ContextBody>
+      <ContextBody>{wordCloudList}</ContextBody>
       <InputBox>
-        <MessageInput></MessageInput>
-        <InputButton>보내기</InputButton>
+        <MessageInput
+          placeholder="챗봇에게 궁금한 점을 물어보세요!"
+          value={message}
+          onKeyDown={pressEnter}
+          onChange={onSetMessage}
+        ></MessageInput>
+        <InputButton onClick={onPassMessage}>보내기</InputButton>
       </InputBox>
     </Wrapper>
   );
@@ -76,8 +89,6 @@ const InputBox = styled.div`
 `;
 
 const MessageInput = styled.input`
-  textholder="챗봇에게 궁금한 점을 물어보세요!";
-  onChange = {onSetMessage};
   margin-left: 4px;
   width: 80%;
   height: 50%;
@@ -85,7 +96,6 @@ const MessageInput = styled.input`
 `;
 
 const InputButton = styled.button`
-  onClick = {onPassMessage};
   margin-left: 8px;
   margin-right: 4px;
   height: 70%;
