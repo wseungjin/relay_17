@@ -7,10 +7,6 @@ const WordCloud = ({ message }) => {
       <MessageBox isUser={message.user}>
         <Message isUser={message.user}>{message.text}</Message>
       </MessageBox>
-      {/* 아래 코드는 챗봇 메세지 확인하기 위해 임시로 작성 (get api 요청이 정상적으로 작동하면 반드시 지울 것)*/}
-      <MessageBox isUser={!message.user}>
-        <Message isUser={!message.user}>{message.text}</Message>
-      </MessageBox>
     </>
   );
 };
