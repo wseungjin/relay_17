@@ -4,7 +4,7 @@ import styled from "styled-components";
 import WordCloud from "./WordCloud";
 import { getChatBot } from "../../util/ReqMessage";
 
-const ChatBot = ({ isOpen, onSetChatbotOpen, school }) => {
+const ChatBot = ({ isOpen, onSetChatbotOpen }) => {
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const [isResponsed, setIsResponsed] = useState(true);
@@ -25,8 +25,7 @@ const ChatBot = ({ isOpen, onSetChatbotOpen, school }) => {
   const onPassMessage = async () => {
     message && setMessageList((messageList) => [...messageList, { text: message, user: true }]);
     setIsResponsed(false);
-    let response = await getChatBot(message, school);
-    if (typeof response === "object") response = "알아듣지 못하겠습니다. ";
+    const response = await getChatBot(message);
     await setMessageList((messageList) => [...messageList, { text: response, user: false }]);
     setIsResponsed(true);
 
