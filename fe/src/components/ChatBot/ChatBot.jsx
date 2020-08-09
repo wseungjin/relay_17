@@ -4,7 +4,7 @@ import styled from "styled-components";
 import WordCloud from "./WordCloud";
 import { getChatBot } from "../../util/ReqMessage";
 
-const ChatBot = ({ isOpen, onSetChatbotOpen }) => {
+const ChatBot = ({ isOpen, onSetChatbotOpen, school }) => {
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
