@@ -4,9 +4,10 @@ import styled from "styled-components";
 import WordCloud from "./WordCloud";
 import { getChatBot } from "../../util/ReqMessage";
 
-const ChatBot = ({ isOpen, onSetChatbotOpen }) => {
+const ChatBot = ({ isOpen, onSetChatbotOpen, school }) => {
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const [isResponsed, setIsResponsed] = useState(true);
 
   const onClose = () => {
     onSetChatbotOpen();
@@ -17,14 +18,18 @@ const ChatBot = ({ isOpen, onSetChatbotOpen }) => {
   };
 
   const pressEnter = (e) => {
+    if (!isResponsed) return;
     if (e.keyCode === 13) onPassMessage();
   };
 
   const onPassMessage = async () => {
     message && setMessageList((messageList) => [...messageList, { text: message, user: true }]);
-    // 챗봇 api가 나오면 추가하면 됨
-    // const res = await getChatBot(message);
-    // setMessageList((messageList) => [...messageList, { text: res, user: false }]);
+    setIsResponsed(false);
+    let response = await getChatBot(message, school);
+    if (typeof response === "object") response = "알아듣지 못하겠습니다. ";
+    await setMessageList((messageList) => [...messageList, { text: response, user: false }]);
+    setIsResponsed(true);
+
     setMessage("");
 
     // 마지막에서 두번째 채팅으로 고정됨
@@ -49,7 +54,9 @@ const ChatBot = ({ isOpen, onSetChatbotOpen }) => {
           onKeyDown={pressEnter}
           onChange={onSetMessage}
         ></MessageInput>
-        <InputButton onClick={onPassMessage}>보내기</InputButton>
+        <InputButton onClick={onPassMessage} disabled={isResponsed ? "false" : "true"}>
+          보내기
+        </InputButton>
       </InputBox>
     </Wrapper>
   );

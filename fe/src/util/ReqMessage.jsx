@@ -25,7 +25,7 @@ export const getUserAll = () => {
 
 export const getUser = (name) => {
   return axios
-    .get(`${URL.userInfo}${name}`)
+    .get(`${URL.userInfo}/${name}`)
     .then((response) => {
       return response.data;
     })
@@ -34,9 +34,9 @@ export const getUser = (name) => {
     });
 };
 
-export const getChatBot = (message) => {
+export const getChatBot = (message, school) => {
   return axios
-    .get(`${URL.chatbot}${message}`)
+    .get(`${URL.chatbot}/${message}/${school}`)
     .then((response) => {
       return response.data;
     })

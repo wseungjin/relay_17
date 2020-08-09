@@ -40,7 +40,7 @@ const MainPage = () => {
               </MainLeft>
               <MainCenter>Center</MainCenter>
               <MainRight>
-                <ChatBot isOpen={chatbotOpen} onSetChatbotOpen={onSetChatbotOpen} />
+                <ChatBot isOpen={chatbotOpen} onSetChatbotOpen={onSetChatbotOpen} school={userInfo.school} />
                 <ChatBotButton onClick={onSetChatbotOpen}>CHAT BOT</ChatBotButton>
               </MainRight>
             </MainBody>
