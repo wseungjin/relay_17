@@ -45,7 +45,9 @@ const ChatBot = ({ isOpen, onSetChatbotOpen }) => {
         <ChatbotTitle>I Loved School 챗봇</ChatbotTitle>
         <TitleButton onClick={onClose}>X</TitleButton>
       </TitleBox>
-      <ContextBody id="context">{wordCloudList}</ContextBody>
+      <ContextWrap id="context">
+        <ContextBody>{wordCloudList}</ContextBody>
+      </ContextWrap>
       <InputBox>
         <MessageInput
           placeholder="챗봇에게 궁금한 점을 물어보세요!"
@@ -93,12 +95,16 @@ const TitleButton = styled.button`
   font-weight: bold;
 `;
 
+const ContextWrap = styled.div`
+  height: 80%;
+  overflow: scroll;
+`;
+
 const ContextBody = styled.div`
   box-sizing: border-box;
   width: 100%;
-  height: 80%;
+  height: 100%;
   padding: 4px;
-  overflow: scroll;
   background-color: #ffffff;
 `;
 
