@@ -55,7 +55,7 @@ const ChatBot = ({ isOpen, onSetChatbotOpen }) => {
           onKeyDown={pressEnter}
           onChange={onSetMessage}
         ></MessageInput>
-        <InputButton onClick={onPassMessage} disabled={isResponsed ? "false" : "true"}>
+        <InputButton onClick={onPassMessage} disabled={isResponsed ? false : true}>
           보내기
         </InputButton>
       </InputBox>
