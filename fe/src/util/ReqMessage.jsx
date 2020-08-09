@@ -34,9 +34,9 @@ export const getUser = (name) => {
     });
 };
 
-export const getChatBot = (message, school) => {
+export const getChatBot = (message) => {
   return axios
-    .get(`${URL.chatbot}/${message}/${school}`)
+    .get(`${URL.chatbot}/${message}`)
     .then((response) => {
       return response.data;
     })
