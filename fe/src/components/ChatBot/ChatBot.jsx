@@ -23,8 +23,10 @@ const ChatBot = ({ isOpen, onSetChatbotOpen }) => {
   };
 
   const onPassMessage = async () => {
-    message && setMessageList((messageList) => [...messageList, { text: message, user: true }]);
+    if (message === "") return;
+
     setIsResponsed(false);
+    setMessageList((messageList) => [...messageList, { text: message, user: true }]);
     const response = await getChatBot(message);
     await setMessageList((messageList) => [...messageList, { text: response, user: false }]);
     setIsResponsed(true);
