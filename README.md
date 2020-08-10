@@ -10,6 +10,9 @@ relay 17조 I Loved School
 ## 기획서
 [wiki](https://github.com/boostcamp-2020/relay_17/wiki/1%EC%A3%BC%EC%B0%A8-%EA%B8%B0%ED%9A%8D%EC%84%9C)
 
+## 2주차 웹페이지
+http://101.101.219.177
+
 ## 참여자
 
 ### 1주차
